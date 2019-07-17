@@ -1,0 +1,21 @@
+version: "3"
+services:
+  cups-airprint:
+    #image: quadportnick/cups-airprint
+    image: gavin/cups-airprint
+    container_name: cups-airprint
+    hostname: google-print
+    #privileged: true
+    ports:
+      - 631:631
+    volumes:
+      - /home/gavin:/home/gavin
+    environment:
+      CUPSADMIN: admin
+      CUPSPASSWORD: pass
+      TZ: UTC
+    restart: unless-stopped
+    
+    build:
+      context: .
+      dockerfile: Dockerfile
