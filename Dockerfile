@@ -16,7 +16,12 @@ RUN apt-get update && apt-get install -y \
 	cups-pdf \
 	inotify-tools \
 	python-cups \
+    python-pip \
 && rm -rf /var/lib/apt/lists/*
+
+# install python libs
+RUN pip install python-daemon requests
+
 
 # This will use port 631
 EXPOSE 631
