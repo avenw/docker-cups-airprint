@@ -10,13 +10,16 @@ RUN echo 'deb http://mirrors.aliyun.com/ubuntu/ xenial multiverse' >> /etc/apt/s
 
 # Install the packages we need. Avahi will be included
 RUN apt-get update && apt-get install -y \
-    tzdata \
+     	autoconf build-essential libavahi-client-dev \
+     	libgnutls28-dev libkrb5-dev libnss-mdns libpam-dev \
+	libsystemd-dev libusb-1.0-0-dev zlib1g-dev \
+     	tzdata \
 	brother-lpr-drivers-extra brother-cups-wrapper-extra \
 	cups \
 	cups-pdf \
 	inotify-tools \
 	python-cups \
-    python-pip \
+    	python-pip \
 && rm -rf /var/lib/apt/lists/*
 
 # install python libs
@@ -34,6 +37,8 @@ VOLUME /services
 ADD root /
 RUN chmod +x /root/*
 CMD ["/root/run_cups.sh"]
+
+RUN useradd -ms /bin/bash dev
 
 # time zone
 RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
