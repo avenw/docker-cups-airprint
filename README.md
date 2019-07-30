@@ -33,9 +33,9 @@ If the `/services` volume isn't mapping to `/etc/avahi/services` then you will h
 
 ### how to run docker container
 
-start docker container:
+* 'start docker container':
 docker-compose up -d
 
 
-enter docker container:
+* 'enter docker container':
 docker exec -it --user=dev  cups-airprint /bin/bash
