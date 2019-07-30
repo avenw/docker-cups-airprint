@@ -31,7 +31,7 @@ If the `/services` volume isn't mapping to `/etc/avahi/services` then you will h
 * Don't stop the container immediately if you intend to have a persistent configuration for this same reason
  
 
-# how to run docker container
+### how to run docker container
 
 * start docker container
 docker-compose up -d
